@@ -1,7 +1,7 @@
 {% extends 'zoo/base.html' %}
 {% load static %}
 {% block content %}
-<script type="application/json" id="stats-data">{{ stats|json_script:"stats-data" }}</script>
+{{ stats|json_script:"stats-data" }}
 <style>
   .home-hero {
     position: relative;
@@ -187,6 +187,42 @@
     .quick-nav { gap: 1rem; }
     .animal-card img { height: 80px; }
   }
+  .carousel-track {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel-track .animal-card {
+    min-width: 200px;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+  }
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .carousel-track {
+    animation: slide 20s linear infinite;
+  }
+  .carousel-text-track {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+  .carousel-text-content {
+    display: inline-block;
+    animation: scroll 15s linear infinite;
+  }
+  .carousel-animal-name {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    color: var(--accent, #6366f1);
+  }
+  @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
 </style>
 <div class="fade-in">
   <div class="home-hero">
@@ -208,20 +244,33 @@
   </div>
   <div class="featured-animals">
     <div class="featured-title">Featured Animals</div>
-    <div class="animal-grid">
-      {% for animal in featured_animals %}
-        <a href="{% url 'animal_detail' animal.pk %}" class="animal-card">
-          {% if animal.image %}
-            <img src="{{ animal.image.url }}" alt="{{ animal.name }}">
-          {% else %}
-            <img src="{% static 'zoo/no-image.png' %}" alt="No image">
-          {% endif %}
-          <div class="name">{{ animal.name }}</div>
-          <div class="species">{{ animal.species }}</div>
-        </a>
-      {% empty %}
-        <div>No featured animals available.</div>
-      {% endfor %}
+    <div class="featured-animals-bar">
+      <div class="featured-animals-scroll-track">
+        {% for animal in featured %}
+          <div class="featured-animal-item">
+            {% if animal.image %}
+              <img src="{{ animal.image.url }}" alt="{{ animal.name }}" class="featured-animal-img">
+            {% else %}
+              <img src="{% static 'zoo/no-image.png' %}" alt="No image" class="featured-animal-img">
+            {% endif %}
+            <div class="featured-animal-name">{{ animal.name }}</div>
+          </div>
+        {% endfor %}
+        {# Duplicate for seamless scroll #}
+        {% for animal in featured %}
+          <div class="featured-animal-item">
+            {% if animal.image %}
+              <img src="{{ animal.image.url }}" alt="{{ animal.name }}" class="featured-animal-img">
+            {% else %}
+              <img src="{% static 'zoo/no-image.png' %}" alt="No image" class="featured-animal-img">
+            {% endif %}
+            <div class="featured-animal-name">{{ animal.name }}</div>
+          </div>
+        {% endfor %}
+      </div>
+      {% if featured|length == 0 %}
+        <div class="featured-animal-name">No featured animals available.</div>
+      {% endif %}
     </div>
   </div>
   <!-- Animated Stats Section -->
@@ -279,8 +328,8 @@
         {% for feedback in feedbacks %}
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
             <div class="feedback-card p-4 text-center">
-              <div class="feedback-text mb-2">"{{ feedback.text|truncatewords:20 }}"</div>
-              <div class="feedback-user">- {{ feedback.user.username }}</div>
+              <div class="feedback-text mb-2">"{{ feedback.message|truncatewords:20 }}"</div>
+              <div class="feedback-user">- {{ feedback.user.username|default:'Anonymous' }}</div>
             </div>
           </div>
         {% empty %}
@@ -316,24 +365,33 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <script>
   // Animated stats logic
-  const stats = JSON.parse(document.getElementById('stats-data').textContent);
-  function animateStat(id, end) {
-    let el = document.getElementById(id);
-    let start = 0;
-    let duration = 900;
-    let step = Math.ceil(end / 40);
-    let current = start;
-    let interval = setInterval(function() {
-      current += step;
-      if (current >= end) {
-        el.textContent = end;
-        clearInterval(interval);
-      } else {
-        el.textContent = current;
-      }
-    }, duration / end);
-  }
   document.addEventListener('DOMContentLoaded', function() {
+    const statsTag = document.getElementById('stats-data');
+    if (!statsTag) return;
+    let stats;
+    try {
+      stats = JSON.parse(statsTag.textContent);
+    } catch (e) {
+      console.error('Stats JSON parse error:', e, statsTag.textContent);
+      return;
+    }
+    function animateStat(id, end) {
+      let el = document.getElementById(id);
+      if (!el) return;
+      let start = 0;
+      let duration = 900;
+      let step = Math.max(1, Math.ceil(end / 40));
+      let current = start;
+      let interval = setInterval(function() {
+        current += step;
+        if (current >= end) {
+          el.textContent = end;
+          clearInterval(interval);
+        } else {
+          el.textContent = current;
+        }
+      }, duration / (end || 1));
+    }
     animateStat('stat-animals', stats.animals);
     animateStat('stat-categories', stats.categories);
     animateStat('stat-zones', stats.zones);

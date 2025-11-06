@@ -2,6 +2,43 @@
 {% load static %}
 {% block content %}
 <style>
+  body.dark-mode .details-card,
+  body.dark-mode .animal-section,
+  body.dark-mode .description-card {
+    background: #23272f !important;
+    color: #f1f1f1 !important;
+    border-color: #343a40 !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  }
+  body.dark-mode .animal-details-list li,
+  body.dark-mode .animal-description {
+    color: #e0e0e0 !important;
+  }
+  body.dark-mode .animal-hero-overlay {
+    background: linear-gradient(90deg, rgba(30,41,59,0.85) 0%, rgba(99,102,241,0.2) 100%);
+    color: #fff !important;
+  }
+  body.dark-mode .description-card {
+    background: #23272f !important;
+    color: #e0e0e0 !important;
+    border-color: #343a40 !important;
+  }
+  .details-card, .animal-section, .description-card {
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .animal-details-list li, .animal-description {
+    word-break: break-word;
+    white-space: pre-line;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+  .animal-description {
+    padding: 0.2rem 0.1rem;
+    border-radius: 0.3rem;
+    background: rgba(0,0,0,0.02);
+    margin-bottom: 0.5rem;
+  }
   .animal-hero {
     position: relative;
     width: 100%;
@@ -107,11 +144,11 @@
             <h4 class="mb-0 fw-bold" style="color:#3b82f6;font-size:1.1rem;">Details</h4>
           </div>
           <ul class="animal-details-list mb-0" style="word-break:break-word;white-space:pre-line;list-style:none;padding-left:0;font-size:0.97rem;">
-            <li class="mb-2"><i class="icon bi bi-tag-fill text-secondary"></i> <strong>Category:</strong> {{ animal.category.name }}</li>
-            <li class="mb-2"><i class="icon bi bi-geo-alt-fill text-danger"></i> <strong>Zone:</strong> {{ animal.zone.name }}</li>
-            <li class="mb-2"><i class="icon bi bi-egg-fill text-warning"></i> <strong>Diet:</strong> {{ animal.diet }}</li>
-            <li class="mb-2"><i class="icon bi bi-tree-fill text-success"></i> <strong>Habitat:</strong> {{ animal.habitat }}</li>
-            <li><i class="icon bi bi-lightbulb-fill text-info"></i> <strong>Fun facts:</strong> {{ animal.fun_facts }}</li>
+            <li class="mb-2"><i class="icon bi bi-tag-fill text-secondary"></i> <strong>Category:</strong> <span>{{ animal.category.name }}</span></li>
+            <li class="mb-2"><i class="icon bi bi-geo-alt-fill text-danger"></i> <strong>Zone:</strong> <span>{{ animal.zone.name }}</span></li>
+            <li class="mb-2"><i class="icon bi bi-egg-fill text-warning"></i> <strong>Diet:</strong> <span>{{ animal.diet }}</span></li>
+            <li class="mb-2"><i class="icon bi bi-tree-fill text-success"></i> <strong>Habitat:</strong> <span>{{ animal.habitat }}</span></li>
+            <li><i class="icon bi bi-lightbulb-fill text-info"></i> <strong>Fun facts:</strong> <span>{{ animal.fun_facts }}</span></li>
           </ul>
         </div>
         <div class="description-card mt-3" style="background:#f8f9fa;border-radius:0.7rem;border:1px solid #e3e3e3;box-shadow:0 2px 12px rgba(0,0,0,0.04);overflow:hidden;">
@@ -120,7 +157,7 @@
               <span class="me-2" style="font-size:1.1rem;color:#10b981;"><i class="icon bi bi-file-earmark-text-fill"></i></span>
               <h4 class="mb-0 fw-bold" style="color:#10b981;font-size:1.05rem;">Description</h4>
             </div>
-            <div class="animal-description" style="word-break:break-word;white-space:pre-line;font-size:0.97rem;line-height:1.6;max-width:100%;color:#222;">
+            <div class="animal-description">
               {{ animal.description }}
             </div>
           </div>

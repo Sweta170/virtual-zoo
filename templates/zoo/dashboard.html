@@ -1,130 +1,105 @@
 {% extends 'zoo/base.html' %}
 {% block content %}
   <div class="fade-in">
-    <h2 class="animate__animated animate__fadeInDown mb-4">Dashboard</h2>
+    <h2 class="dashboard-title animate__animated animate__fadeInDown">Dashboard</h2>
     <p class="mb-4">Your role: <strong>{{ role }}</strong></p>
-    <div class="row g-4 mb-4">
-      <div class="col-md-3">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">Animals</h5>
-            <p class="card-text display-6">{{ animal_count }}</p>
-          </div>
+    <div class="dashboard-row">
+      <div class="card dashboard-card text-center animate__animated animate__zoomIn">
+        <div class="card-body">
+          <div class="dashboard-icon">🦁</div>
+          <h5 class="card-title">Animals</h5>
+          <p class="dashboard-stat" id="dashboard-animals">0</p>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">Categories</h5>
-            <p class="card-text display-6">{{ category_count }}</p>
-          </div>
+      <div class="card dashboard-card text-center animate__animated animate__zoomIn animate__delay-1s">
+        <div class="card-body">
+          <div class="dashboard-icon">🏷️</div>
+          <h5 class="card-title">Categories</h5>
+          <p class="dashboard-stat" id="dashboard-categories">0</p>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">Zones</h5>
-            <p class="card-text display-6">{{ zone_count }}</p>
-          </div>
+      <div class="card dashboard-card text-center animate__animated animate__zoomIn animate__delay-2s">
+        <div class="card-body">
+          <div class="dashboard-icon">📍</div>
+          <h5 class="card-title">Zones</h5>
+          <p class="dashboard-stat" id="dashboard-zones">0</p>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">Blogs</h5>
-            <p class="card-text display-6">{{ blog_count }}</p>
-          </div>
+      <div class="card dashboard-card text-center animate__animated animate__zoomIn animate__delay-3s">
+        <div class="card-body">
+          <div class="dashboard-icon">📝</div>
+          <h5 class="card-title">Blogs</h5>
+          <p class="dashboard-stat" id="dashboard-blogs">0</p>
         </div>
       </div>
     </div>
-    <div class="row g-4 mb-4">
-      <div class="col-lg-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <h4 class="mb-3">Most Viewed Animals</h4>
-            <ul class="list-group list-group-flush">
-              {% for animal in most_viewed_animals %}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <a href="{% url 'animal_detail' animal.pk %}">{{ animal.name }}</a>
-                  <span class="badge bg-primary rounded-pill">{{ animal.view_count }} views</span>
-                </li>
-              {% empty %}
-                <li class="list-group-item">No animal views yet.</li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
+    <div class="dashboard-cards-grid mb-4">
+      <div class="dashboard-card dashboard-list-card">
+        <div class="dashboard-section-title">Recently Added Animals</div>
+        <ul class="dashboard-list">
+          {% for animal in recent_animals %}
+            <li><strong>{{ animal.name }}</strong> ({{ animal.species }})</li>
+          {% empty %}
+            <li>No recent animals.</li>
+          {% endfor %}
+        </ul>
       </div>
-      <div class="col-lg-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <h4 class="mb-3">Recent Feedback</h4>
-            <ul class="list-group list-group-flush">
-              {% for feedback in recent_feedback %}
-                <li class="list-group-item">
-                  {% if feedback.user %}{{ feedback.user.username }}{% else %}Anonymous{% endif %}: {{ feedback.message }} <span class="badge bg-success ms-2">{{ feedback.rating }}/5</span>
-                </li>
-              {% empty %}
-                <li class="list-group-item">No feedback yet.</li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
+      <div class="dashboard-card dashboard-list-card">
+        <div class="dashboard-section-title">Most Viewed Animals</div>
+        <ul class="dashboard-list">
+          {% for animal in most_viewed_animals %}
+            <li><strong>{{ animal.name }}</strong> ({{ animal.view_count }} views)</li>
+          {% empty %}
+            <li>No data.</li>
+          {% endfor %}
+        </ul>
       </div>
-    </div>
-    <div class="row g-4 mb-4">
-      <div class="col-lg-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <h4 class="mb-3">Recent Animals</h4>
-            <ul class="list-group list-group-flush">
-              {% for animal in recent_animals %}
-                <li class="list-group-item">
-                  <a href="{% url 'animal_detail' animal.pk %}">{{ animal.name }}</a>
-                </li>
-              {% empty %}
-                <li class="list-group-item">No animals found.</li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
+      <div class="dashboard-card dashboard-list-card">
+        <div class="dashboard-section-title">Recent Blogs</div>
+        <ul class="dashboard-list">
+          {% for blog in recent_blogs %}
+            <li><strong>{{ blog.title }}</strong> by {{ blog.author.username }}</li>
+          {% empty %}
+            <li>No recent blogs.</li>
+          {% endfor %}
+        </ul>
       </div>
-      <div class="col-lg-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <h4 class="mb-3">Recent Blogs</h4>
-            <ul class="list-group list-group-flush">
-              {% for blog in recent_blogs %}
-                <li class="list-group-item">
-                  {{ blog.title }} by {{ blog.author.username }}
-                </li>
-              {% empty %}
-                <li class="list-group-item">No blogs found.</li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row g-4">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body text-center">
-            {% if role == 'admin' %}
-              <a href="/admin/" class="btn btn-primary me-2">Open Admin Panel</a>
-              <a href="{% url 'manage_animals' %}" class="btn btn-success">Manage Animals</a>
-            {% elif role == 'zookeeper' %}
-              <a href="{% url 'manage_animals' %}" class="btn btn-success">Manage Animals</a>
-            {% elif role == 'educator' %}
-              <a href="#" class="btn btn-primary me-2">Create Blog Post</a>
-              <a href="#" class="btn btn-success">Create Quiz</a>
-            {% else %}
-              <a href="{% url 'animal_list' %}" class="btn btn-primary me-2">Browse Animals</a>
-              <a href="{% url 'take_quiz' %}" class="btn btn-success">Take a Quiz</a>
-            {% endif %}
-          </div>
-        </div>
+      <div class="dashboard-card dashboard-list-card">
+        <div class="dashboard-section-title">Recent Feedback</div>
+        <ul class="dashboard-list">
+          {% for feedback in recent_feedback %}
+            <li><strong>{{ feedback.user.username|default:'Anonymous' }}</strong>: {{ feedback.message|truncatewords:12 }}</li>
+          {% empty %}
+            <li>No feedback yet.</li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>
+  <script>
+    // Animated count-up for dashboard stats
+    document.addEventListener('DOMContentLoaded', function() {
+      function animateStat(id, end) {
+        let el = document.getElementById(id);
+        if (!el) return;
+        let start = 0;
+        let duration = 900;
+        let step = Math.max(1, Math.ceil(end / 40));
+        let current = start;
+        let interval = setInterval(function() {
+          current += step;
+          if (current >= end) {
+            el.textContent = end;
+            clearInterval(interval);
+          } else {
+            el.textContent = current;
+          }
+        }, duration / (end || 1));
+      }
+      animateStat('dashboard-animals', Number('{{ animal_count }}'));
+      animateStat('dashboard-categories', Number('{{ category_count }}'));
+      animateStat('dashboard-zones', Number('{{ zone_count }}'));
+      animateStat('dashboard-blogs', Number('{{ blog_count }}'));
+    });
+  </script>
 {% endblock %}

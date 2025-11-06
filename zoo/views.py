@@ -99,6 +99,10 @@ def dashboard(request):
     recent_blogs = Blog.objects.order_by('-date_posted')[:5]
     most_viewed_animals = Animal.objects.order_by('-view_count')[:5]
     recent_feedback = Feedback.objects.order_by('-created_at')[:5]
+    import json
+    categories = Category.objects.all()
+    category_labels_json = json.dumps([cat.name for cat in categories])
+    category_counts_json = json.dumps([cat.animals.count() for cat in categories])
     context = {
         'role': role,
         'animal_count': animal_count,
@@ -109,6 +113,8 @@ def dashboard(request):
         'recent_blogs': recent_blogs,
         'most_viewed_animals': most_viewed_animals,
         'recent_feedback': recent_feedback,
+        'category_labels_json': category_labels_json,
+        'category_counts_json': category_counts_json,
     }
     return render(request, 'zoo/dashboard.html', context)
 
@@ -209,7 +215,40 @@ def take_quiz(request):
     from .models import Quiz
     quizzes = Quiz.objects.all()[:5]
     quiz_count = quizzes.count()
-    return render(request, 'zoo/quiz.html', {'quizzes': quizzes, 'quiz_count': quiz_count})
+    feedback = None
+    results = {}
+    if request.method == 'POST':
+        score = 0
+        total = quizzes.count()
+        for quiz in quizzes:
+            user_answer = request.POST.get(f'quiz_{quiz.id}')
+            if user_answer:
+                is_correct = user_answer.strip() == quiz.correct_answer.strip()
+                results[quiz.id] = {
+                    'question': quiz.question,
+                    'user_answer': user_answer,
+                    'correct_answer': quiz.correct_answer,
+                    'is_correct': is_correct
+                }
+                if is_correct:
+                    score += 1
+            else:
+                results[quiz.id] = {
+                    'question': quiz.question,
+                    'user_answer': None,
+                    'correct_answer': quiz.correct_answer,
+                    'is_correct': False
+                }
+        feedback = {
+            'score': score,
+            'total': total
+        }
+    return render(request, 'zoo/quiz.html', {
+        'quizzes': quizzes,
+        'quiz_count': quiz_count,
+        'results': results,
+        'feedback': feedback
+    })
 
 
 def blog_list(request):
