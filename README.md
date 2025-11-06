@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Virtual Zoo
 
 This is a minimal Django-based Virtual Zoo scaffold implementing:
@@ -43,3 +44,6 @@ Visit http://127.0.0.1:8000/ to open the site and http://127.0.0.1:8000/admin/ f
 Notes:
 - Change SECRET_KEY in `virtualzoo/settings.py` for production.
 - Media files are served in DEBUG mode. Configure a proper media/static host for production.
+=======
+# virtual-zoo
+>>>>>>> 8b734f6b7a647ee66580874afa558869a17fe625
