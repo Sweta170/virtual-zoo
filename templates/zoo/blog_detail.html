@@ -1,0 +1,14 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+  <div class="fade-in">
+    <h2 class="animate__animated animate__fadeInDown">{{ blog.title }}</h2>
+    <p><small>By {{ blog.author.username }} on {{ blog.date_posted|date:"M d, Y" }}</small></p>
+    <div class="mb-4">{{ blog.content|linebreaks }}</div>
+    {% if blog.approved %}
+      <span class="badge bg-success">Approved</span>
+    {% else %}
+      <span class="badge bg-warning text-dark">Pending Approval</span>
+    {% endif %}
+    <a href="{% url 'blog_list' %}" class="btn btn-secondary mt-3">Back to Blog</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+  <h2>Zoo Map</h2>
+  <div class="row">
+    {% for zone in zones %}
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ zone.name }}</h5>
+            <p class="card-text">{{ zone.description }}</p>
+            <a href="#" class="btn btn-outline-success">View Animals</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="mt-4">
+    <img src="{% static 'images/zoo_map_placeholder.png' %}" alt="Zoo Map" class="img-fluid">
+    <p class="text-muted">Interactive map coming soon!</p>
+  </div>
+{% endblock %}

@@ -1,0 +1,345 @@
+{% extends 'zoo/base.html' %}
+{% load static %}
+{% block content %}
+<script type="application/json" id="stats-data">{{ stats|json_script:"stats-data" }}</script>
+<style>
+  .home-hero {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(90deg, var(--accent, #6366f1) 60%, #fff 100%);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .home-hero-img {
+    height: 100%;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 1.5rem 0 0 1.5rem;
+    box-shadow: 0 2px 16px rgba(99,102,241,0.08);
+  }
+  .home-hero-content {
+    padding: 2.5rem 3rem;
+    color: #fff;
+    z-index: 2;
+  }
+  .home-hero-title {
+    font-size: 2.7rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  .home-hero-tagline {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 1.2rem;
+  }
+  .quick-nav {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .quick-card {
+    background: var(--card-bg, #fff);
+    color: var(--text, #222);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px rgba(99,102,241,0.08);
+    padding: 1.2rem 2rem;
+    min-width: 180px;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+  }
+  .quick-card:hover {
+    box-shadow: 0 8px 32px rgba(99,102,241,0.18);
+    transform: translateY(-4px) scale(1.04);
+    background: var(--accent, #6366f1);
+    color: #fff;
+  }
+  .quick-card i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent, #6366f1);
+    transition: color 0.2s;
+  }
+  .quick-card:hover i {
+    color: #fff;
+  }
+  .featured-animals {
+    margin-bottom: 2.5rem;
+  }
+  .featured-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: var(--accent, #6366f1);
+  }
+  .animal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  .animal-card {
+    background: var(--card-bg, #fff);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px rgba(99,102,241,0.08);
+    text-align: center;
+    padding: 1rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .animal-card:hover {
+    box-shadow: 0 8px 32px rgba(99,102,241,0.18);
+    transform: translateY(-4px) scale(1.04);
+    background: var(--accent, #6366f1);
+    color: #fff;
+  }
+  .animal-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 0.7rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .animal-card .name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+  .animal-card .species {
+    font-size: 0.95rem;
+    opacity: 0.8;
+  }
+  .stat-card {
+    background: var(--card-bg, #fff);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px rgba(99,102,241,0.08);
+    padding: 1.2rem 0.5rem;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.2s, background 0.2s;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent, #6366f1);
+  }
+  .stat-card i {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+    color: var(--accent, #6366f1);
+  }
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent, #6366f1);
+    margin-bottom: 0.2rem;
+    animation: countUp 1.2s;
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .stat-label {
+    font-size: 1rem;
+    color: var(--text, #222);
+    opacity: 0.8;
+  }
+  .feedback-card {
+    background: var(--card-bg, #fff);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px rgba(99,102,241,0.08);
+    color: var(--text, #222);
+    font-size: 1.1rem;
+  }
+  .carousel-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent, #6366f1);
+  }
+  .footer {
+    background: var(--card-bg, #fff);
+    color: var(--text, #222);
+    border-top: 1px solid #e5e7eb;
+    font-size: 1rem;
+  }
+  .footer a {
+    color: var(--accent, #6366f1);
+    font-size: 1.3rem;
+    transition: color 0.2s;
+  }
+  .footer a:hover {
+    color: #222;
+  }
+  @media (max-width: 991px) {
+    .home-hero { height: 180px; }
+    .home-hero-content { padding: 1rem; }
+    .home-hero-title { font-size: 1.5rem; }
+    .quick-nav { gap: 1rem; }
+    .animal-card img { height: 80px; }
+  }
+</style>
+<div class="fade-in">
+  <div class="home-hero">
+    <img src="{% static 'zoo/zoo-hero.jpg' %}" class="home-hero-img" alt="Zoo">
+    <div class="home-hero-content">
+      <div class="home-hero-title">Welcome to Virtual Zoo</div>
+      <div class="home-hero-tagline">Explore, learn, and interact with amazing animals from around the world!</div>
+      {% if user.is_authenticated %}
+        <div class="mb-2">Hello, {{ user.profile.role|title }} {{ user.username }}!</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="quick-nav">
+    <a href="{% url 'animal_list' %}" class="quick-card"><i class="bi bi-search"></i> Explore Animals</a>
+    <a href="{% url 'take_quiz' %}" class="quick-card"><i class="bi bi-question-circle"></i> Take a Quiz</a>
+    <a href="{% url 'blog_list' %}" class="quick-card"><i class="bi bi-journal-text"></i> Read Blog</a>
+    <a href="{% url 'favorites_list' %}" class="quick-card"><i class="bi bi-heart"></i> Favorites</a>
+    <a href="{% url 'submit_feedback' %}" class="quick-card"><i class="bi bi-chat-dots"></i> Feedback</a>
+  </div>
+  <div class="featured-animals">
+    <div class="featured-title">Featured Animals</div>
+    <div class="animal-grid">
+      {% for animal in featured_animals %}
+        <a href="{% url 'animal_detail' animal.pk %}" class="animal-card">
+          {% if animal.image %}
+            <img src="{{ animal.image.url }}" alt="{{ animal.name }}">
+          {% else %}
+            <img src="{% static 'zoo/no-image.png' %}" alt="No image">
+          {% endif %}
+          <div class="name">{{ animal.name }}</div>
+          <div class="species">{{ animal.species }}</div>
+        </a>
+      {% empty %}
+        <div>No featured animals available.</div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- Animated Stats Section -->
+  <div class="stats-section mb-5">
+    <div class="row text-center g-4">
+      <div class="col">
+        <div class="stat-card">
+          <i class="bi bi-collection"></i>
+          <div class="stat-value" id="stat-animals">0</div>
+          <div class="stat-label">Animals</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="stat-card">
+          <i class="bi bi-tags"></i>
+          <div class="stat-value" id="stat-categories">0</div>
+          <div class="stat-label">Categories</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="stat-card">
+          <i class="bi bi-geo-alt"></i>
+          <div class="stat-value" id="stat-zones">0</div>
+          <div class="stat-label">Zones</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="stat-card">
+          <i class="bi bi-question-circle"></i>
+          <div class="stat-value" id="stat-quizzes">0</div>
+          <div class="stat-label">Quizzes</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="stat-card">
+          <i class="bi bi-journal-text"></i>
+          <div class="stat-value" id="stat-blogs">0</div>
+          <div class="stat-label">Blogs</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="stat-card">
+          <i class="bi bi-chat-dots"></i>
+          <div class="stat-value" id="stat-feedback">0</div>
+          <div class="stat-label">Feedback</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Feedback Carousel -->
+  <div class="feedback-carousel mb-5">
+    <div class="carousel-title mb-3">Recent Feedback</div>
+    <div id="feedbackCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {% for feedback in feedbacks %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="feedback-card p-4 text-center">
+              <div class="feedback-text mb-2">"{{ feedback.text|truncatewords:20 }}"</div>
+              <div class="feedback-user">- {{ feedback.user.username }}</div>
+            </div>
+          </div>
+        {% empty %}
+          <div class="carousel-item active">
+            <div class="feedback-card p-4 text-center">No feedback yet.</div>
+          </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- Modern Footer -->
+  <footer class="footer mt-5 py-4 text-center">
+    <div class="container">
+      <div class="mb-2">
+        <a href="#" class="mx-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="mx-2"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="mx-2"><i class="bi bi-instagram"></i></a>
+      </div>
+      <div class="mb-1">Contact: info@virtualzoo.com</div>
+      <div>&copy; {{ year }} Virtual Zoo. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<script>
+  // Animated stats logic
+  const stats = JSON.parse(document.getElementById('stats-data').textContent);
+  function animateStat(id, end) {
+    let el = document.getElementById(id);
+    let start = 0;
+    let duration = 900;
+    let step = Math.ceil(end / 40);
+    let current = start;
+    let interval = setInterval(function() {
+      current += step;
+      if (current >= end) {
+        el.textContent = end;
+        clearInterval(interval);
+      } else {
+        el.textContent = current;
+      }
+    }, duration / end);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    animateStat('stat-animals', stats.animals);
+    animateStat('stat-categories', stats.categories);
+    animateStat('stat-zones', stats.zones);
+    animateStat('stat-quizzes', stats.quizzes);
+    animateStat('stat-blogs', stats.blogs);
+    animateStat('stat-feedback', stats.feedback);
+  });
+</script>
+{% endblock %}

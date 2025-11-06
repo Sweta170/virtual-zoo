@@ -1,0 +1,28 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Manage Animals</h2>
+    <a class="btn btn-success" href="{% url 'animal_add' %}">Add Animal</a>
+  </div>
+  <div class="row">
+    {% for a in animals %}
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body d-flex">
+            <div class="me-3" style="width:120px;">
+              {% if a.image %}<img src="{{ a.image.url }}" class="img-fluid">{% endif %}
+            </div>
+            <div>
+              <h5>{{ a.name }}</h5>
+              <p>{{ a.species }}</p>
+              <a class="btn btn-sm btn-primary" href="{% url 'animal_edit' a.pk %}">Edit</a>
+              <a class="btn btn-sm btn-danger" href="{% url 'animal_delete' a.pk %}">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>No animals.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

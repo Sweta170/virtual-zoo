@@ -1,0 +1,24 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+  <h2>Take a Quiz</h2>
+  <p>Quizzes found: {{ quiz_count }}</p>
+  {% if quizzes %}
+    <form method="post">
+      {% csrf_token %}
+      {% for quiz in quizzes %}
+        <div class="mb-4">
+          <h5>{{ quiz.question }}</h5>
+          {% for option in quiz.options.splitlines %}
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="quiz_{{ quiz.id }}" value="{{ option }}" id="quiz_{{ quiz.id }}_{{ forloop.counter }}">
+              <label class="form-check-label" for="quiz_{{ quiz.id }}_{{ forloop.counter }}">{{ option }}</label>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <button class="btn btn-success">Submit Answers</button>
+    </form>
+  {% else %}
+    <p>No quizzes available yet.</p>
+  {% endif %}
+{% endblock %}

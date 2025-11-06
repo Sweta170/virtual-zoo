@@ -1,0 +1,71 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+<style>
+  .feedback-card {
+    max-width: 480px;
+    margin: 2rem auto;
+    background: var(--card-bg, #fff);
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 24px rgba(100,116,139,0.10);
+    padding: 2.5rem 2rem 2rem 2rem;
+    position: relative;
+    animation: fadeIn 0.7s;
+  }
+  .feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent, #64748b);
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent2, #94a3b8);
+    padding-bottom: 0.7rem;
+  }
+  .feedback-form .form-control {
+    border-radius: 1rem;
+    font-size: 1.08rem;
+    margin-bottom: 1.2rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid #94a3b8;
+  }
+  .feedback-form .btn {
+    border-radius: 2rem;
+    font-weight: 600;
+    padding: 0.7rem 2rem;
+    background: var(--accent, #64748b);
+    color: #fff;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(100,116,139,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .feedback-form .btn:hover {
+    background: var(--accent2, #94a3b8);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(100,116,139,0.18);
+  }
+  .alert {
+    border-radius: 1rem;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    padding: 0.7rem 1rem;
+    animation: fadeIn 0.7s;
+  }
+</style>
+<div class="feedback-card">
+  <div class="feedback-header">
+    <i class="bi bi-chat-dots"></i> Submit Feedback
+  </div>
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+  <form method="post" class="feedback-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn"><i class="bi bi-send"></i> Submit</button>
+  </form>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+{% endblock %}

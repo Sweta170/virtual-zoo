@@ -1,0 +1,10 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+  <h2>{{ action }} Animal</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">{{ action }}</button>
+    <a class="btn btn-secondary" href="{% url 'manage_animals' %}">Cancel</a>
+  </form>
+{% endblock %}

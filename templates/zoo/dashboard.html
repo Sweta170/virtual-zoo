@@ -1,0 +1,130 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+  <div class="fade-in">
+    <h2 class="animate__animated animate__fadeInDown mb-4">Dashboard</h2>
+    <p class="mb-4">Your role: <strong>{{ role }}</strong></p>
+    <div class="row g-4 mb-4">
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Animals</h5>
+            <p class="card-text display-6">{{ animal_count }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Categories</h5>
+            <p class="card-text display-6">{{ category_count }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Zones</h5>
+            <p class="card-text display-6">{{ zone_count }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Blogs</h5>
+            <p class="card-text display-6">{{ blog_count }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4 mb-4">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="mb-3">Most Viewed Animals</h4>
+            <ul class="list-group list-group-flush">
+              {% for animal in most_viewed_animals %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <a href="{% url 'animal_detail' animal.pk %}">{{ animal.name }}</a>
+                  <span class="badge bg-primary rounded-pill">{{ animal.view_count }} views</span>
+                </li>
+              {% empty %}
+                <li class="list-group-item">No animal views yet.</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="mb-3">Recent Feedback</h4>
+            <ul class="list-group list-group-flush">
+              {% for feedback in recent_feedback %}
+                <li class="list-group-item">
+                  {% if feedback.user %}{{ feedback.user.username }}{% else %}Anonymous{% endif %}: {{ feedback.message }} <span class="badge bg-success ms-2">{{ feedback.rating }}/5</span>
+                </li>
+              {% empty %}
+                <li class="list-group-item">No feedback yet.</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4 mb-4">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="mb-3">Recent Animals</h4>
+            <ul class="list-group list-group-flush">
+              {% for animal in recent_animals %}
+                <li class="list-group-item">
+                  <a href="{% url 'animal_detail' animal.pk %}">{{ animal.name }}</a>
+                </li>
+              {% empty %}
+                <li class="list-group-item">No animals found.</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="mb-3">Recent Blogs</h4>
+            <ul class="list-group list-group-flush">
+              {% for blog in recent_blogs %}
+                <li class="list-group-item">
+                  {{ blog.title }} by {{ blog.author.username }}
+                </li>
+              {% empty %}
+                <li class="list-group-item">No blogs found.</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body text-center">
+            {% if role == 'admin' %}
+              <a href="/admin/" class="btn btn-primary me-2">Open Admin Panel</a>
+              <a href="{% url 'manage_animals' %}" class="btn btn-success">Manage Animals</a>
+            {% elif role == 'zookeeper' %}
+              <a href="{% url 'manage_animals' %}" class="btn btn-success">Manage Animals</a>
+            {% elif role == 'educator' %}
+              <a href="#" class="btn btn-primary me-2">Create Blog Post</a>
+              <a href="#" class="btn btn-success">Create Quiz</a>
+            {% else %}
+              <a href="{% url 'animal_list' %}" class="btn btn-primary me-2">Browse Animals</a>
+              <a href="{% url 'take_quiz' %}" class="btn btn-success">Take a Quiz</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

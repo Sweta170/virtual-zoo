@@ -1,0 +1,10 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+  <h2>Delete Animal</h2>
+  <p>Are you sure you want to delete <strong>{{ animal.name }}</strong>?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Yes, delete</button>
+    <a class="btn btn-secondary" href="{% url 'manage_animals' %}">Cancel</a>
+  </form>
+{% endblock %}
