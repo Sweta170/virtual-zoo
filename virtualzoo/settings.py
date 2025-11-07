@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY
 SECRET_KEY = 'change-me-for-production'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['swetapython.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Apps
 INSTALLED_APPS = [
