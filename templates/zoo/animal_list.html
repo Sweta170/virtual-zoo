@@ -1,15 +1,127 @@
 {% extends 'zoo/base.html' %}
+{% load static %}
+{% block extra_head %}
+<style>
+html.animal-list-bg, body.animal-list-bg {
+  height: 100% !important;
+  min-height: 100vh !important;
+  background: url('{% static "zoo/jungle-bg.jpg" %}') center center/cover no-repeat fixed !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-color: transparent !important;
+}
+.container {
+  background: transparent !important;
+}
+/* Elegant animal card styles */
+.animal-card {
+  background: rgba(255,255,255,0.78) !important;
+  box-shadow: 0 6px 24px rgba(99,102,241,0.10);
+  border-radius: 1.1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.2px solid rgba(99,102,241,0.08);
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s, background 0.25s;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+.animal-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+.animal-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(99,102,241,0.18);
+  background: rgba(255,255,255,0.92) !important;
+}
+.animal-card-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 1.1rem 1.1rem 0 0;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.07);
+  transition: filter 0.3s;
+}
+.animal-card:hover .animal-card-img {
+  filter: brightness(1.08) saturate(1.1);
+}
+.animal-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #23272f;
+  margin-bottom: 0.2rem;
+  transition: color 0.2s;
+}
+.animal-card:hover .animal-card-title {
+  color: #6366f1;
+}
+.animal-card-species {
+  font-size: 1.02rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.01em;
+}
+.animal-card .btn {
+  font-size: 0.98rem;
+  font-weight: 500;
+  padding: 0.38rem 1.1rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.animal-card .btn-primary {
+  background: #6366f1;
+  border: none;
+}
+.animal-card .btn-primary:hover {
+  background: #4f46e5;
+}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('animal-list-bg');
+    document.documentElement.classList.add('animal-list-bg');
+    // Animate cards on load
+    const cards = document.querySelectorAll('.animal-card');
+    cards.forEach((card, i) => {
+      setTimeout(() => card.classList.add('visible'), 120 + i * 90);
+    });
+  });
+</script>
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('animal-list-bg');
+    document.documentElement.classList.add('animal-list-bg');
+  });
+</script>
+{% endblock %}
 {% block content %}
-  <h2>{% if category %}{{ category.name }}{% else %}All Animals{% endif %}</h2>
-  <div class="row">
+  <h2 style="font-weight: 700; font-size: 2.1rem; margin-bottom: 1.5rem; letter-spacing: 0.01em; color: #23272f;">{% if category %}{{ category.name }}{% else %}All Animals{% endif %}</h2>
+  <div class="row justify-content-center">
     {% for animal in animals %}
-      <div class="col-md-4 mb-3">
-        <div class="card shadow-sm rounded">
-          {% if animal.image %}<img src="{{ animal.image.url }}" class="card-img-top img-fluid" style="max-height:220px;object-fit:cover;border-radius:1rem 1rem 0 0;">{% endif %}
-          <div class="card-body">
-            <h5 class="fw-bold">{{ animal.name }}</h5>
-            <p class="mb-1 text-muted">{{ animal.species }}</p>
-            <a href="{% url 'animal_detail' animal.pk %}" class="btn btn-sm btn-primary rounded-pill">View Details</a>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex align-items-stretch justify-content-center">
+        <div class="animal-card w-100">
+          {% if animal.image %}
+            <img src="{{ animal.image.url }}" class="animal-card-img" alt="{{ animal.name }}">
+          {% else %}
+            <img src="{% static 'zoo/no-image.png' %}" class="animal-card-img" alt="No image">
+          {% endif %}
+          <div class="p-3">
+            <div class="animal-card-title">{{ animal.name }}</div>
+            <div class="animal-card-species">{{ animal.species }}</div>
+            <a href="{% url 'animal_detail' animal.pk %}" class="btn btn-primary">View Details</a>
           </div>
         </div>
       </div>

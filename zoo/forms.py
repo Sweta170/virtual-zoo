@@ -4,6 +4,30 @@ from django.contrib.auth.models import User
 from .models import Animal, Category, Blog, Profile, Feedback
 
 
+# Contact form for zookeeper contact
+class ContactForm(forms.Form):
+    SUBJECT_CHOICES = [
+        ("General", "General Inquiry"),
+        ("Animal Care", "Animal Care"),
+        ("Lost & Found", "Lost & Found"),
+        ("Emergency", "Emergency"),
+        ("Other", "Other"),
+    ]
+    URGENCY_CHOICES = [
+        ("Normal", "Normal"),
+        ("Urgent", "Urgent"),
+    ]
+    name = forms.CharField(max_length=60, required=True, label="Your Name")
+    email = forms.EmailField(required=True, label="Your Email")
+    subject = forms.ChoiceField(choices=SUBJECT_CHOICES, required=True)
+    urgency = forms.ChoiceField(choices=URGENCY_CHOICES, required=False, initial="Normal")
+    message = forms.CharField(widget=forms.Textarea(attrs={"rows": 5}), required=True, label="Message")
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import Animal, Category, Blog, Profile, Feedback
+
+
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
     role = forms.ChoiceField(choices=Profile.ROLE_CHOICES, initial='visitor')

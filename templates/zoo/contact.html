@@ -1,0 +1,55 @@
+{% extends 'zoo/base.html' %}
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+      <div class="card shadow-lg p-4 animate__animated animate__fadeInUp">
+        <h2 class="mb-3 text-center" style="color:var(--accent,#6366f1);font-weight:700;">Contact the Zookeeper</h2>
+        {% if sent %}
+          <div class="alert alert-success text-center">Thank you for contacting us! We will respond as soon as possible.</div>
+        {% else %}
+          <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="id_name" class="form-label">Name</label>
+              <input type="text" name="name" maxlength="60" class="form-control" id="id_name" placeholder="Your Name" value="{{ form.name.value|default_if_none:'' }}">
+              {% for error in form.name.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="mb-3">
+              <label for="id_email" class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" id="id_email" placeholder="Your Email" value="{{ form.email.value|default_if_none:'' }}">
+              {% for error in form.email.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="mb-3">
+              <label for="id_subject" class="form-label">Subject</label>
+              <select name="subject" class="form-select" id="id_subject">
+                {% for val, label in form.fields.subject.choices %}
+                  <option value="{{ val }}" {% if form.subject.value == val %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+              </select>
+              {% for error in form.subject.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="mb-3">
+              <label for="id_urgency" class="form-label">Urgency</label>
+              <select name="urgency" class="form-select" id="id_urgency">
+                {% for val, label in form.fields.urgency.choices %}
+                  <option value="{{ val }}" {% if form.urgency.value == val %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+              </select>
+              {% for error in form.urgency.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="mb-3">
+              <label for="id_message" class="form-label">Message</label>
+              <textarea name="message" rows="5" class="form-control" id="id_message" placeholder="Type your message here...">{{ form.message.value|default_if_none:'' }}</textarea>
+              {% for error in form.message.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+            </div>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

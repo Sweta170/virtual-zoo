@@ -3,7 +3,26 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Animal, Category, Zone, Blog, Feedback, Quiz, Fact, Favorite
-from .forms import RegisterForm, AnimalForm, BlogForm, FeedbackForm
+from .forms import RegisterForm, AnimalForm, BlogForm, FeedbackForm, ContactForm
+from django.core.mail import send_mail
+from django.conf import settings
+
+def contact(request):
+    sent = False
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            # Compose email
+            subject = f"[Virtual Zoo Contact] {cd['subject']} ({cd.get('urgency', 'Normal')})"
+            message = f"From: {cd['name']} <{cd['email']}>,\nUrgency: {cd.get('urgency', 'Normal')}\n\n{cd['message']}"
+            recipient = getattr(settings, 'ZOO_CONTACT_EMAIL', None) or getattr(settings, 'DEFAULT_FROM_EMAIL', None)
+            if recipient:
+                send_mail(subject, message, cd['email'], [recipient])
+            sent = True
+    else:
+        form = ContactForm()
+    return render(request, 'zoo/contact.html', {'form': form, 'sent': sent})
 from .decorators import role_required
 
 
@@ -17,7 +36,8 @@ def home(request):
         animals = Animal.objects.filter(name__icontains=q) | Animal.objects.filter(species__icontains=q)
     else:
         animals = None
-    featured_animals = Animal.objects.order_by('-view_count')[:6]
+    # Show the most recent animals as featured (for the carousel)
+    featured_animals = Animal.objects.order_by('-created_at')[:6]
     stats = {
         'animals': Animal.objects.count(),
         'categories': Category.objects.count(),

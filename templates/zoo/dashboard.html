@@ -1,4 +1,5 @@
 {% extends 'zoo/base.html' %}
+{% load static %}
 {% block content %}
   <div class="fade-in">
     <h2 class="dashboard-title animate__animated animate__fadeInDown">Dashboard</h2>
@@ -34,45 +35,87 @@
       </div>
     </div>
     <div class="dashboard-cards-grid mb-4">
-      <div class="dashboard-card dashboard-list-card">
-        <div class="dashboard-section-title">Recently Added Animals</div>
-        <ul class="dashboard-list">
+      <!-- Recently Added Animals -->
+      <div class="dashboard-card dashboard-list-card animate__animated animate__fadeInUp">
+        <div class="dashboard-section-title"><i class="bi bi-plus-circle-fill me-1"></i>Recently Added Animals</div>
+        <div class="dashboard-list-modern">
           {% for animal in recent_animals %}
-            <li><strong>{{ animal.name }}</strong> ({{ animal.species }})</li>
+            <div class="dashboard-list-modern-item">
+              {% if animal.image %}
+                <img src="{{ animal.image.url }}" class="dashboard-animal-thumb" alt="{{ animal.name }}">
+              {% else %}
+                <img src="{% static 'zoo/no-image.png' %}" class="dashboard-animal-thumb" alt="No image">
+              {% endif %}
+              <div class="dashboard-list-modern-info">
+                <div class="dashboard-animal-name">{{ animal.name }}</div>
+                <div class="dashboard-animal-species">{{ animal.species }}</div>
+                <div class="dashboard-animal-date">Added: {{ animal.created_at|date:"M d, Y" }}</div>
+                <a href="{% url 'animal_detail' animal.pk %}" class="btn btn-sm btn-primary mt-1">View</a>
+              </div>
+            </div>
           {% empty %}
-            <li>No recent animals.</li>
+            <div class="text-muted">No recent animals.</div>
           {% endfor %}
-        </ul>
+        </div>
       </div>
-      <div class="dashboard-card dashboard-list-card">
-        <div class="dashboard-section-title">Most Viewed Animals</div>
-        <ul class="dashboard-list">
+      <!-- Most Viewed Animals -->
+      <div class="dashboard-card dashboard-list-card animate__animated animate__fadeInUp animate__delay-1s">
+        <div class="dashboard-section-title"><i class="bi bi-eye-fill me-1"></i>Most Viewed Animals</div>
+        <div class="dashboard-list-modern">
           {% for animal in most_viewed_animals %}
-            <li><strong>{{ animal.name }}</strong> ({{ animal.view_count }} views)</li>
+            <div class="dashboard-list-modern-item">
+              {% if animal.image %}
+                <img src="{{ animal.image.url }}" class="dashboard-animal-thumb" alt="{{ animal.name }}">
+              {% else %}
+                <img src="{% static 'zoo/no-image.png' %}" class="dashboard-animal-thumb" alt="No image">
+              {% endif %}
+              <div class="dashboard-list-modern-info">
+                <div class="dashboard-animal-name">{{ animal.name }}</div>
+                <div class="dashboard-animal-species">{{ animal.species }}</div>
+                <div class="dashboard-animal-date">Views: {{ animal.view_count }}</div>
+                <a href="{% url 'animal_detail' animal.pk %}" class="btn btn-sm btn-outline-primary mt-1">View</a>
+              </div>
+            </div>
           {% empty %}
-            <li>No data.</li>
+            <div class="text-muted">No data.</div>
           {% endfor %}
-        </ul>
+        </div>
       </div>
-      <div class="dashboard-card dashboard-list-card">
-        <div class="dashboard-section-title">Recent Blogs</div>
-        <ul class="dashboard-list">
+      <!-- Recent Blogs -->
+      <div class="dashboard-card dashboard-list-card animate__animated animate__fadeInUp animate__delay-2s">
+        <div class="dashboard-section-title"><i class="bi bi-journal-text me-1"></i>Recent Blogs</div>
+        <div class="dashboard-list-modern">
           {% for blog in recent_blogs %}
-            <li><strong>{{ blog.title }}</strong> by {{ blog.author.username }}</li>
+            <div class="dashboard-list-modern-item">
+              <div class="dashboard-blog-icon"><i class="bi bi-journal-text"></i></div>
+              <div class="dashboard-list-modern-info">
+                <div class="dashboard-blog-title">{{ blog.title }}</div>
+                <div class="dashboard-blog-meta">by {{ blog.author.username }} &middot; {{ blog.date_posted|date:"M d, Y" }}</div>
+                <a href="{% url 'blog_detail' blog.pk %}" class="btn btn-sm btn-outline-secondary mt-1">Read</a>
+              </div>
+            </div>
           {% empty %}
-            <li>No recent blogs.</li>
+            <div class="text-muted">No recent blogs.</div>
           {% endfor %}
-        </ul>
+        </div>
       </div>
-      <div class="dashboard-card dashboard-list-card">
-        <div class="dashboard-section-title">Recent Feedback</div>
-        <ul class="dashboard-list">
+      <!-- Recent Feedback -->
+      <div class="dashboard-card dashboard-list-card animate__animated animate__fadeInUp animate__delay-3s">
+        <div class="dashboard-section-title"><i class="bi bi-chat-dots-fill me-1"></i>Recent Feedback</div>
+        <div class="dashboard-list-modern">
           {% for feedback in recent_feedback %}
-            <li><strong>{{ feedback.user.username|default:'Anonymous' }}</strong>: {{ feedback.message|truncatewords:12 }}</li>
+            <div class="dashboard-list-modern-item">
+              <div class="dashboard-feedback-icon"><i class="bi bi-person-circle"></i></div>
+              <div class="dashboard-list-modern-info">
+                <div class="dashboard-feedback-user">{{ feedback.user.username|default:'Anonymous' }}</div>
+                <div class="dashboard-feedback-message">{{ feedback.message|truncatewords:12 }}</div>
+                <div class="dashboard-feedback-date">{{ feedback.created_at|date:"M d, Y H:i" }}</div>
+              </div>
+            </div>
           {% empty %}
-            <li>No feedback yet.</li>
+            <div class="text-muted">No feedback yet.</div>
           {% endfor %}
-        </ul>
+        </div>
       </div>
     </div>
   </div>
