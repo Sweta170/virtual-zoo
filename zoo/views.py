@@ -13,7 +13,16 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            # Compose email
+            # Save to ContactMessage model
+            from .models import ContactMessage
+            ContactMessage.objects.create(
+                name=cd['name'],
+                email=cd['email'],
+                subject=cd['subject'],
+                urgency=cd.get('urgency', ''),
+                message=cd['message']
+            )
+            # Compose email (optional, still prints to console)
             subject = f"[Virtual Zoo Contact] {cd['subject']} ({cd.get('urgency', 'Normal')})"
             message = f"From: {cd['name']} <{cd['email']}>,\nUrgency: {cd.get('urgency', 'Normal')}\n\n{cd['message']}"
             recipient = getattr(settings, 'ZOO_CONTACT_EMAIL', None) or getattr(settings, 'DEFAULT_FROM_EMAIL', None)
@@ -84,7 +93,13 @@ def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            user = form.save()  # This will save the user with the password from the form
+            # Always update profile with correct role and age
+            from .models import Profile
+            profile = user.profile
+            profile.role = form.cleaned_data.get('role')
+            profile.age = form.cleaned_data.get('age')
+            profile.save()
             login(request, user)
             return redirect('home')
     else:

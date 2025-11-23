@@ -1,10 +1,116 @@
 {% extends 'zoo/base.html' %}
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
+<style>
+  .login-card {
+    max-width: 400px;
+    margin: 2.5rem auto;
+    background: #f4f7fa;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(60,60,100,0.18);
+    padding: 2.5rem 2rem 2rem 2rem;
+    position: relative;
+    animation: fadeIn 0.8s;
+    border: 1.5px solid #e0e7ef;
+  }
+  .login-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .login-form .form-label {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.2rem;
+    margin-left: 0.2rem;
+  }
+  .login-form input {
+    border-radius: 0.8rem;
+    font-size: 1.08rem;
+    margin-bottom: 1.1rem;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid #b6c2d6;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  .login-form input:focus {
+    border: 1.5px solid #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 2px #6366f133;
+  }
+  .login-form .btn {
+    border-radius: 2rem;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(90deg, #6366f1 60%, #60a5fa 100%);
+    color: #fff;
+    font-size: 1.15rem;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 0.7rem;
+    width: 100%;
+    letter-spacing: 1px;
+  }
+  .login-form .btn:hover {
+    background: linear-gradient(90deg, #60a5fa 60%, #6366f1 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(99,102,241,0.18);
+  }
+  .alert {
+    border-radius: 1rem;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    padding: 0.7rem 1rem;
+    animation: fadeIn 0.7s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<div class="login-card animate__animated animate__fadeInUp">
+  <div class="login-title">Login</div>
+  {% if next %}
+    <div class="alert alert-info">Please login to access this page.</div>
+  {% endif %}
+  <form method="post" class="login-form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-primary">Login</button>
-    <input type="hidden" name="next" value="{{ next }}">
+    <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+      {% for field in form.visible_fields %}
+        {% if field.name == 'password' %}
+          <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          <div style="position:relative;">
+            {{ field }}
+            <span class="toggle-password" toggle="#{{ field.id_for_label }}" style="position:absolute; top:50%; right:1rem; transform:translateY(-50%); cursor:pointer; color:#64748b; font-size:1.2rem;">
+              <i class="bi bi-eye-slash" id="toggleLoginPassword"></i>
+            </span>
+          </div>
+        {% else %}
+          <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+        {% endif %}
+      {% endfor %}
+      <button class="btn btn-primary mt-2">Login</button>
+      <input type="hidden" name="next" value="{{ next }}">
+    </div>
   </form>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const passwordInput = document.getElementById('id_password');
+    const toggleIcon = document.getElementById('toggleLoginPassword');
+    if (passwordInput && toggleIcon) {
+      toggleIcon.addEventListener('click', function() {
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+        toggleIcon.classList.toggle('bi-eye');
+        toggleIcon.classList.toggle('bi-eye-slash');
+      });
+    }
+  });
+</script>
 {% endblock %}

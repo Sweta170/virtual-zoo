@@ -1,3 +1,6 @@
+LOGOUT_REDIRECT_URL = '/'
+# Use console email backend for development
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 import os
 
 # Base

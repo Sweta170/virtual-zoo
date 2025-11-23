@@ -1,6 +1,18 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=60)
+    email = models.EmailField()
+    subject = models.CharField(max_length=120)
+    urgency = models.CharField(max_length=20, blank=True)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.subject} from {self.name} ({self.email})"
 
 
 class Profile(models.Model):
@@ -12,6 +24,7 @@ class Profile(models.Model):
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='visitor')
+    age = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.username} ({self.role})"

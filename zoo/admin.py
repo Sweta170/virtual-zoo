@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (
-    Profile, Category, Animal, Fact, Blog, Zone, Feedback, Favorite, Quiz
+    Profile, Category, Animal, Fact, Blog, Zone, Feedback, Favorite, Quiz, ContactMessage
 )
 
 
@@ -52,3 +52,5 @@ class FavoriteAdmin(admin.ModelAdmin):
 @admin.register(Quiz)
 class QuizAdmin(admin.ModelAdmin):
     list_display = ('question',)
+
+admin.site.register(ContactMessage)

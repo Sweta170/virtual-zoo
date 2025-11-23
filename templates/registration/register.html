@@ -1,9 +1,139 @@
 {% extends 'zoo/base.html' %}
 {% block content %}
-  <h2>Register</h2>
-  <form method="post">
+<style>
+  .register-card {
+    max-width: 400px;
+    margin: 2.5rem auto;
+    background: #f4f7fa;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(60,60,100,0.18);
+    padding: 2.5rem 2rem 2rem 2rem;
+    position: relative;
+    animation: fadeIn 0.8s;
+    border: 1.5px solid #e0e7ef;
+  }
+  .register-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .register-form .form-label {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.2rem;
+    margin-left: 0.2rem;
+  }
+  .register-form input, .register-form select {
+    border-radius: 0.8rem;
+    font-size: 1.08rem;
+    margin-bottom: 1.1rem;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid #b6c2d6;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  .register-form input:focus, .register-form select:focus {
+    border: 1.5px solid #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 2px #6366f133;
+  }
+  .register-form .btn {
+    border-radius: 2rem;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(90deg, #6366f1 60%, #60a5fa 100%);
+    color: #fff;
+    font-size: 1.15rem;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 0.7rem;
+    width: 100%;
+    letter-spacing: 1px;
+  }
+  .register-form .btn:hover {
+    background: linear-gradient(90deg, #60a5fa 60%, #6366f1 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(99,102,241,0.18);
+  }
+  .alert {
+    border-radius: 1rem;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    padding: 0.7rem 1rem;
+    animation: fadeIn 0.7s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<div class="register-card animate__animated animate__fadeInUp">
+  <div class="register-title">Create Your Account</div>
+  <form method="post" class="register-form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-primary">Register</button>
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        <ul style="margin-bottom:0;">
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{ field.label }}: {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+      <label class="form-label" for="id_username">{{ form.username.label }}</label>
+      {{ form.username }}
+      <label class="form-label" for="id_email">{{ form.email.label }}</label>
+      {{ form.email }}
+      <label class="form-label" for="id_role">{{ form.role.label }}</label>
+      {{ form.role }}
+      <label class="form-label" for="id_age">{{ form.age.label }}</label>
+      {{ form.age }}
+      <label class="form-label" for="id_password1">{{ form.password1.label }}</label>
+      <div style="position:relative;">
+        {{ form.password1 }}
+        <span class="toggle-password" toggle="#id_password1" style="position:absolute; top:50%; right:1rem; transform:translateY(-50%); cursor:pointer; color:#64748b; font-size:1.2rem;">
+          <i class="bi bi-eye-slash" id="togglePassword1"></i>
+        </span>
+      </div>
+      <label class="form-label" for="id_password2">{{ form.password2.label }}</label>
+      <div style="position:relative;">
+        {{ form.password2 }}
+        <span class="toggle-password" toggle="#id_password2" style="position:absolute; top:50%; right:1rem; transform:translateY(-50%); cursor:pointer; color:#64748b; font-size:1.2rem;">
+          <i class="bi bi-eye-slash" id="togglePassword2"></i>
+        </span>
+      </div>
+      <button class="btn btn-primary mt-2">Register</button>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        function setupToggle(passwordId, toggleId) {
+          const passwordInput = document.getElementById(passwordId);
+          const toggleIcon = document.getElementById(toggleId);
+          if (passwordInput && toggleIcon) {
+            toggleIcon.addEventListener('click', function() {
+              const type = passwordInput.type === 'password' ? 'text' : 'password';
+              passwordInput.type = type;
+              toggleIcon.classList.toggle('bi-eye');
+              toggleIcon.classList.toggle('bi-eye-slash');
+            });
+          }
+        }
+        setupToggle('id_password1', 'togglePassword1');
+        setupToggle('id_password2', 'togglePassword2');
+      });
+    </script>
+    </div>
   </form>
+</div>
 {% endblock %}

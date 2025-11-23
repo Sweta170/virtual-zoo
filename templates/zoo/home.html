@@ -232,6 +232,8 @@
       <div class="home-hero-tagline">Explore, learn, and interact with amazing animals from around the world!</div>
       {% if user.is_authenticated %}
         <div class="mb-2">Hello, {{ user.profile.role|title }} {{ user.username }}!</div>
+      {% else %}
+        <a href="{% url 'register' %}" class="btn btn-lg btn-warning mt-2">Register Now</a>
       {% endif %}
     </div>
   </div>

@@ -1,0 +1,1640 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-11-05T15:57:14.775Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "African Elephant",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-11-05T15:57:26.143Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "African Elephant",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-11-05T15:58:28.884Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Bald Eagle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-11-05T15:58:37.545Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Bald Eagle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-11-05T16:01:51.293Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "Lion",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-11-05T17:16:05.579Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "how many legs are there in lion ?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-11-05T20:40:59.926Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Green Sea Turtle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-11-05T20:43:05.928Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Green Sea Turtle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Diet\", \"Fun facts\", \"Image\", \"Video\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-11-06T12:34:24.487Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Poison Dart Frog",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Fun facts\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-11-06T12:34:41.226Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Poison Dart Frog",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Sound\", \"Video\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-11-06T12:37:21.798Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Komodo Dragon",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Fun facts\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-11-06T12:43:02.552Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Komodo Dragon",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Sound\", \"Video\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-11-06T12:46:36.926Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Bald Eagle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Fun facts\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-11-06T12:49:54.589Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Bald Eagle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Sound\", \"Video\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-11-06T12:50:33.100Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Bald Eagle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-11-06T12:52:45.764Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "African Elephant",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Fun facts\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-11-06T12:55:51.063Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "African Elephant",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Sound\", \"Video\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-11-06T13:08:35.587Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "1. Which of the following animals is the largest living land mammal?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Question\", \"Options\", \"Correct answer\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-11-06T13:08:40.694Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "1. Which of the following animals is the largest living land mammal?",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-11-06T13:09:04.287Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "2. The Poison Dart Frog gets its toxicity mainly from its ________.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-11-06T13:09:23.919Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "3. What is the national bird of the United States?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-11-06T13:09:50.502Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "4",
+    "object_repr": "4. The Komodo Dragon belongs to which animal category?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-11-06T13:10:35.142Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "5",
+    "object_repr": "6. Which animal uses its trunk for drinking, grabbing food, and communication?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-11-06T13:10:57.502Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "6",
+    "object_repr": "7. The Bald Eagle primarily feeds on:",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-11-06T13:11:16.526Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "7",
+    "object_repr": "8. The Komodo Dragon’s bite is dangerous because it contains ________.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-11-06T13:11:35.168Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "8",
+    "object_repr": "9. In which zone would you most likely find the Poison Dart Frog?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-11-06T13:12:17.910Z",
+    "user": 3,
+    "content_type": 15,
+    "object_id": "9",
+    "object_repr": "10. Fill in the blank:",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-11-07T06:52:48.315Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "7",
+    "object_repr": "Giraffe",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-11-07T06:55:27.733Z",
+    "user": 3,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Tropical Zone",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-11-07T07:00:06.852Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "8",
+    "object_repr": "Peacock",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-11-07T07:01:32.625Z",
+    "user": 3,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "River Zone",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-11-07T07:07:54.769Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "9",
+    "object_repr": "Crocodile",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-11-07T07:22:57.330Z",
+    "user": 3,
+    "content_type": 10,
+    "object_id": "10",
+    "object_repr": "Butterfly",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add profile",
+    "content_type": 7,
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change profile",
+    "content_type": 7,
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": 7,
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view profile",
+    "content_type": 7,
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 8,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 8,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 8,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 8,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add zone",
+    "content_type": 9,
+    "codename": "add_zone"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change zone",
+    "content_type": 9,
+    "codename": "change_zone"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete zone",
+    "content_type": 9,
+    "codename": "delete_zone"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view zone",
+    "content_type": 9,
+    "codename": "view_zone"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add animal",
+    "content_type": 10,
+    "codename": "add_animal"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change animal",
+    "content_type": 10,
+    "codename": "change_animal"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete animal",
+    "content_type": 10,
+    "codename": "delete_animal"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view animal",
+    "content_type": 10,
+    "codename": "view_animal"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add fact",
+    "content_type": 11,
+    "codename": "add_fact"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change fact",
+    "content_type": 11,
+    "codename": "change_fact"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete fact",
+    "content_type": 11,
+    "codename": "delete_fact"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view fact",
+    "content_type": 11,
+    "codename": "view_fact"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add blog",
+    "content_type": 12,
+    "codename": "add_blog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change blog",
+    "content_type": 12,
+    "codename": "change_blog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete blog",
+    "content_type": 12,
+    "codename": "delete_blog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view blog",
+    "content_type": 12,
+    "codename": "view_blog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add feedback",
+    "content_type": 13,
+    "codename": "add_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change feedback",
+    "content_type": 13,
+    "codename": "change_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete feedback",
+    "content_type": 13,
+    "codename": "delete_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view feedback",
+    "content_type": 13,
+    "codename": "view_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add favorite",
+    "content_type": 14,
+    "codename": "add_favorite"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change favorite",
+    "content_type": 14,
+    "codename": "change_favorite"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete favorite",
+    "content_type": 14,
+    "codename": "delete_favorite"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view favorite",
+    "content_type": 14,
+    "codename": "view_favorite"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add quiz",
+    "content_type": 15,
+    "codename": "add_quiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change quiz",
+    "content_type": 15,
+    "codename": "change_quiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete quiz",
+    "content_type": 15,
+    "codename": "delete_quiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view quiz",
+    "content_type": 15,
+    "codename": "view_quiz"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$5cQuftAXarVTmZLbA9bHsx$sXodGkUuzcTjXvfPEoWSOUymfQRQ8YtkMA84mcVUgPE=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-05T15:04:27.849Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$fnhdpVqRRZrV1OiTZQ54gd$L0CO1qnXmj27vTnMTAHVylr/z/St8N1KgQqHrjTQCyU=",
+    "last_login": "2025-11-05T16:42:53.318Z",
+    "is_superuser": true,
+    "username": "hp",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-05T15:47:48.931Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$NKvtzox8aMR3zGKSZE6BOv$2cc5bXZBWjfZMt2H8wg18QJhmOgh6NL2aLzsbxISODo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "demo",
+    "first_name": "",
+    "last_name": "",
+    "email": "demo@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-05T15:54:13.660Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "zoo",
+    "model": "profile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "zoo",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "zoo",
+    "model": "zone"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "zoo",
+    "model": "animal"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "zoo",
+    "model": "fact"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "zoo",
+    "model": "blog"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "zoo",
+    "model": "feedback"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "zoo",
+    "model": "favorite"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "zoo",
+    "model": "quiz"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bseo5x6kyve46pfil9nanh15ixnskaka",
+  "fields": {
+    "session_data": ".eJxVjDEOgzAMAP-SuYoCwcZ07M4bkGM7hbYCicBU9e8VEkO73p3u7Qbet3HYi63DpO7qorv8ssTytPkQ-uD5vnhZ5m2dkj8Sf9ri-0XtdTvbv8HIZTy2VOUompmVmEgRglGGrtEaY4ihMmyjBJGuVkNrLHEWiAhA0AKS-3wB87o36A:1vGgaz:HcKL4Ok0xuK3sTc67uY_OPT4eVJphf4EjvFdxGL89A0",
+    "expire_date": "2025-11-19T16:42:53.333Z"
+  }
+},
+{
+  "model": "zoo.profile",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "role": "visitor"
+  }
+},
+{
+  "model": "zoo.profile",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "role": "visitor"
+  }
+},
+{
+  "model": "zoo.category",
+  "pk": 1,
+  "fields": {
+    "name": "Mammals",
+    "description": "Mammals at the Virtual Zoo",
+    "slug": "mammals"
+  }
+},
+{
+  "model": "zoo.category",
+  "pk": 2,
+  "fields": {
+    "name": "Birds",
+    "description": "Birds at the Virtual Zoo",
+    "slug": "birds"
+  }
+},
+{
+  "model": "zoo.category",
+  "pk": 3,
+  "fields": {
+    "name": "Reptiles",
+    "description": "Reptiles at the Virtual Zoo",
+    "slug": "reptiles"
+  }
+},
+{
+  "model": "zoo.category",
+  "pk": 4,
+  "fields": {
+    "name": "Amphibians",
+    "description": "Amphibians at the Virtual Zoo",
+    "slug": "amphibians"
+  }
+},
+{
+  "model": "zoo.category",
+  "pk": 5,
+  "fields": {
+    "name": "Fish",
+    "description": "Fish at the Virtual Zoo",
+    "slug": "fish"
+  }
+},
+{
+  "model": "zoo.category",
+  "pk": 6,
+  "fields": {
+    "name": "Insects",
+    "description": "Insects at the Virtual Zoo",
+    "slug": "insects"
+  }
+},
+{
+  "model": "zoo.zone",
+  "pk": 1,
+  "fields": {
+    "name": "Jungle",
+    "description": "Jungle zone",
+    "map_location": ""
+  }
+},
+{
+  "model": "zoo.zone",
+  "pk": 2,
+  "fields": {
+    "name": "Desert",
+    "description": "Desert zone",
+    "map_location": ""
+  }
+},
+{
+  "model": "zoo.zone",
+  "pk": 3,
+  "fields": {
+    "name": "Ocean",
+    "description": "Ocean zone",
+    "map_location": ""
+  }
+},
+{
+  "model": "zoo.zone",
+  "pk": 4,
+  "fields": {
+    "name": "Savannah",
+    "description": "Savannah zone",
+    "map_location": ""
+  }
+},
+{
+  "model": "zoo.zone",
+  "pk": 5,
+  "fields": {
+    "name": "Rainforest",
+    "description": "Rainforest zone",
+    "map_location": ""
+  }
+},
+{
+  "model": "zoo.zone",
+  "pk": 6,
+  "fields": {
+    "name": "Tropical Zone",
+    "description": "The Tropical Zone represents warm, humid regions with dense forests, abundant rainfall, and rich biodiversity.",
+    "map_location": "South-East Section of the Zoo (near Rainforest Dome and Aviary)"
+  }
+},
+{
+  "model": "zoo.zone",
+  "pk": 7,
+  "fields": {
+    "name": "River Zone",
+    "description": "The River Zone features animals that live in or around freshwater habitats such as rivers, lakes, and wetlands. This zone showcases aquatic reptiles, amphibians, and fish that depend on clean water ecosystems.",
+    "map_location": "Central-East Section of the Zoo (near Reptile House and Amphibian Pond)"
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 1,
+  "fields": {
+    "name": "African Elephant",
+    "species": "Loxodonta africana",
+    "scientific_name": "Loxodonta africana",
+    "category": 1,
+    "zone": 4,
+    "description": "The African Elephant is the largest land animal on Earth. It is known for its large ears shaped like the African continent, long curved tusks made of ivory, and a powerful trunk used for breathing, grasping, drinking, and communication. Their gray, wrinkled skin helps them stay cool in the hot savannah climate.",
+    "diet": "Herbivore",
+    "habitat": "Savannah",
+    "fun_facts": "African Elephants can consume up to 300 pounds of food and drink 50 gallons of water in a single day.",
+    "image": "animals/images/elephant_i3tedNJ.jpeg",
+    "sound": "animals/sounds/elephant-225994.mp3",
+    "video": "animals/videos/elephant.mp4",
+    "created_at": "2025-11-05T15:54:14.157Z",
+    "view_count": 26
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 2,
+  "fields": {
+    "name": "Bald Eagle",
+    "species": "Haliaeetus leucocephalus",
+    "scientific_name": "Haliaeetus leucocephalus",
+    "category": 2,
+    "zone": 5,
+    "description": "The Bald Eagle is a large, majestic bird of prey known for its striking white head and tail contrasting with a dark brown body and wings. It has sharp talons, a hooked yellow beak, and keen eyesight, making it a powerful hunter and an enduring symbol of freedom and strength.",
+    "diet": "Carnivore",
+    "habitat": "Near water",
+    "fun_facts": "National bird of the United States. They build some of the largest nests of any bird, often over 8 feet wide and weighing more than a ton.",
+    "image": "animals/images/eagle_hKugM8i.jpg",
+    "sound": "animals/sounds/eagle-281163.mp3",
+    "video": "animals/videos/eagle.mp4",
+    "created_at": "2025-11-05T15:54:14.772Z",
+    "view_count": 29
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 3,
+  "fields": {
+    "name": "Green Sea Turtle",
+    "species": "Chelonia mydas",
+    "scientific_name": "Chelonia mydas",
+    "category": 5,
+    "zone": 3,
+    "description": "The Green Sea Turtle is a large, air-breathing marine reptile known for its smooth, heart-shaped shell and gentle nature. Despite its name, its shell is usually brown or olive in color — the “green” actually refers to the greenish fat found beneath its shell, caused by its herbivorous diet of seagrass and algae.",
+    "diet": "Herbivore — primarily feeds on seagrasses and algae.",
+    "habitat": "Oceans",
+    "fun_facts": "Green sea turtles can live up to 80 years or more.\r\n\r\nThey migrate thousands of kilometers between feeding grounds and nesting beaches.\r\n\r\nFemale turtles return to the same beach where they were born to lay their eggs.\r\n\r\nThey play a crucial role in maintaining healthy seagrass beds and marine ecosystems.",
+    "image": "animals/images/greenTurtle.jpg",
+    "sound": "",
+    "video": "animals/videos/green-turtle.mp4",
+    "created_at": "2025-11-05T15:54:15.345Z",
+    "view_count": 6
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 4,
+  "fields": {
+    "name": "Komodo Dragon",
+    "species": "Varanus komodoensis",
+    "scientific_name": "Varanus komodoensis",
+    "category": 3,
+    "zone": 2,
+    "description": "The Komodo Dragon is the largest living species of lizard, capable of growing up to 10 feet (3 meters) in length and weighing over 150 kilograms (330 pounds). It has a robust body, strong limbs, a long tail, and a forked tongue, which it uses to detect smells in the air.",
+    "diet": "Carnivore",
+    "habitat": "Tropical savannahs",
+    "fun_facts": "Komodo Dragons have a venomous bite that prevents blood clotting in their prey, causing rapid blood loss and shock.\r\nKomodo Dragons can eat up to 80% of their body weight in a single meal.",
+    "image": "animals/images/KomodoDragon.jpg",
+    "sound": "animals/sounds/epic-dragon-roar-364481.mp3",
+    "video": "animals/videos/dragon.mp4",
+    "created_at": "2025-11-05T15:54:15.969Z",
+    "view_count": 3
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 5,
+  "fields": {
+    "name": "Poison Dart Frog",
+    "species": "Dendrobatidae",
+    "scientific_name": "Dendrobatidae",
+    "category": 4,
+    "zone": 1,
+    "description": "Poison Dart Frogs are small, vibrant frogs known for their bright, striking colors, which serve as a warning to predators about their toxicity. They are among the most visually diverse frogs in the world, with colors ranging from blue, yellow, red, green, and even combinations of multiple shades.",
+    "diet": "Insectivore",
+    "habitat": "Tropical rainforests",
+    "fun_facts": "The name “Poison Dart Frog” comes from indigenous people using their toxic secretions to coat blow darts for hunting.\r\nNot all Poison Dart Frogs are poisonous; their toxicity comes from their diet in the wild. Frogs raised in captivity are often non-toxic.",
+    "image": "animals/images/dartFrog.jpeg",
+    "sound": "animals/sounds/frog-croaking-sound-effect-322956.mp3",
+    "video": "animals/videos/frog.mp4",
+    "created_at": "2025-11-05T15:54:16.565Z",
+    "view_count": 2
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 6,
+  "fields": {
+    "name": "Lion",
+    "species": "Loxodonta africana",
+    "scientific_name": "Lioness",
+    "category": 4,
+    "zone": 1,
+    "description": "",
+    "diet": "",
+    "habitat": "",
+    "fun_facts": "",
+    "image": "animals/images/lion.jpeg",
+    "sound": "animals/sounds/lion-roaring-sfx-293295.mp3",
+    "video": "animals/videos/94169-641767865.mp4",
+    "created_at": "2025-11-05T16:01:51.291Z",
+    "view_count": 23
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 7,
+  "fields": {
+    "name": "Giraffe",
+    "species": "Giraffa camelopardalis",
+    "scientific_name": "Giraffa camelopardalis",
+    "category": 1,
+    "zone": 4,
+    "description": "The giraffe is the tallest land animal in the world, known for its long neck and distinctive spotted coat. It uses its height to browse leaves and shoots high up in trees, especially acacia species.",
+    "diet": "Herbivore",
+    "habitat": "African savannas, grasslands, and open woodlands.",
+    "fun_facts": "A giraffe’s tongue can be up to 45 cm (18 inches) long! They sleep less than 2 hours a day.",
+    "image": "animals/images/giraffe-5800387_1920.jpg",
+    "sound": "",
+    "video": "animals/videos/girraf.mp4",
+    "created_at": "2025-11-07T06:52:48.312Z",
+    "view_count": 2
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 8,
+  "fields": {
+    "name": "Peacock",
+    "species": "Indian Peafowl",
+    "scientific_name": "Pavo cristatus",
+    "category": 2,
+    "zone": 6,
+    "description": "Known for its colorful, fan-shaped tail feathers that it displays during courtship.",
+    "diet": "Omnivore",
+    "habitat": "Forests and farmlands of South Asia.",
+    "fun_facts": "The peacock is India’s national bird.",
+    "image": "animals/images/peacock.jpg",
+    "sound": "animals/sounds/nearby-peacock-call-220346.mp3",
+    "video": "animals/videos/peacock.mp4",
+    "created_at": "2025-11-07T07:00:06.848Z",
+    "view_count": 2
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 9,
+  "fields": {
+    "name": "Crocodile",
+    "species": "Nile Crocodile",
+    "scientific_name": "Crocodylus niloticus",
+    "category": 3,
+    "zone": 7,
+    "description": "A large aquatic reptile with strong jaws and a long tail, known for ambush hunting.",
+    "diet": "Carnivore – fish, birds, and mammals.",
+    "habitat": "Rivers, lakes, and wetlands.",
+    "fun_facts": "Can hold its breath underwater for up to 30 minutes!",
+    "image": "animals/images/nile-crocodile-4386667_1280.jpg",
+    "sound": "animals/sounds/crocodile.mp3",
+    "video": "animals/videos/crococile.mp4",
+    "created_at": "2025-11-07T07:07:54.765Z",
+    "view_count": 1
+  }
+},
+{
+  "model": "zoo.animal",
+  "pk": 10,
+  "fields": {
+    "name": "Butterfly",
+    "species": "Monarch Butterfly",
+    "scientific_name": "Danaus plexippus",
+    "category": 6,
+    "zone": 1,
+    "description": "A colorful insect with orange and black wings, known for long migrations.",
+    "diet": "Herbivore",
+    "habitat": "Meadows and gardens.",
+    "fun_facts": "Monarchs migrate over 3,000 miles every year!",
+    "image": "animals/images/butterfly-5180306_1920.jpg",
+    "sound": "",
+    "video": "animals/videos/butterfly.mp4",
+    "created_at": "2025-11-07T07:22:57.324Z",
+    "view_count": 1
+  }
+},
+{
+  "model": "zoo.fact",
+  "pk": 1,
+  "fields": {
+    "title": "Elephants can recognize themselves in mirrors",
+    "content": "Elephants show self-awareness."
+  }
+},
+{
+  "model": "zoo.fact",
+  "pk": 2,
+  "fields": {
+    "title": "Bird migration",
+    "content": "Many birds migrate thousands of miles."
+  }
+},
+{
+  "model": "zoo.blog",
+  "pk": 1,
+  "fields": {
+    "title": "Welcome to the Virtual Zoo",
+    "content": "This is a demo blog post.",
+    "author": 4,
+    "date_posted": "2025-11-05T15:54:17.115Z",
+    "approved": true
+  }
+},
+{
+  "model": "zoo.feedback",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "message": "very amazing elephant ..I like it very much",
+    "rating": 5,
+    "created_at": "2025-11-06T13:03:27.059Z"
+  }
+},
+{
+  "model": "zoo.feedback",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "message": "very nice eagle amzing...",
+    "rating": 5,
+    "created_at": "2025-11-06T14:22:03.809Z"
+  }
+},
+{
+  "model": "zoo.feedback",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "message": "elephant is very nice",
+    "rating": 10,
+    "created_at": "2025-11-07T04:40:19.098Z"
+  }
+},
+{
+  "model": "zoo.favorite",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "animal": 2
+  }
+},
+{
+  "model": "zoo.favorite",
+  "pk": 4,
+  "fields": {
+    "user": 3,
+    "animal": 1
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 1,
+  "fields": {
+    "question": "1. Which of the following animals is the largest living land mammal?",
+    "options": "A) Tiger\r\nB) African Elephant\r\nC) Giraffe\r\nD) Rhinoceros",
+    "correct_answer": "B) African Elephant"
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 2,
+  "fields": {
+    "question": "2. The Poison Dart Frog gets its toxicity mainly from its ________.",
+    "options": "A) Skin color\r\nB) Diet in the wild\r\nC) Habitat\r\nD) Breathing system",
+    "correct_answer": "B) Diet in the wild"
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 3,
+  "fields": {
+    "question": "3. What is the national bird of the United States?",
+    "options": "A) Golden Eagle\r\nB) Bald Eagle\r\nC) Hawk\r\nD) Falcon",
+    "correct_answer": "B) Bald Eagle"
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 4,
+  "fields": {
+    "question": "4. The Komodo Dragon belongs to which animal category?",
+    "options": "A) Amphibians\r\nB) Reptiles\r\nC) Mammals\r\nD) Birds",
+    "correct_answer": "B) Reptiles"
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 5,
+  "fields": {
+    "question": "6. Which animal uses its trunk for drinking, grabbing food, and communication?",
+    "options": "A) Hippopotamus\r\nB) African Elephant\r\nC) Giraffe\r\nD) Rhinoceros",
+    "correct_answer": "B) African Elephant"
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 6,
+  "fields": {
+    "question": "7. The Bald Eagle primarily feeds on:",
+    "options": "A) Fruits\r\nB) Fish\r\nC) Grass\r\nD) Insects",
+    "correct_answer": "B) Fish"
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 7,
+  "fields": {
+    "question": "8. The Komodo Dragon’s bite is dangerous because it contains ________.",
+    "options": "A) Electricity\r\nB) Fire\r\nC) Venom\r\nD) Poison in saliva only",
+    "correct_answer": "C) Venom"
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 8,
+  "fields": {
+    "question": "9. In which zone would you most likely find the Poison Dart Frog?",
+    "options": "A) Arctic\r\nB) Jungle\r\nC) Desert\r\nD) Savannah",
+    "correct_answer": "B) Jungle"
+  }
+},
+{
+  "model": "zoo.quiz",
+  "pk": 9,
+  "fields": {
+    "question": "10. Fill in the blank:",
+    "options": "The bright colors of a Poison Dart Frog act as a ________ to predators.",
+    "correct_answer": "Warning"
+  }
+}
+]
